@@ -1,17 +1,32 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
+import Pet from './Tshirt'
 const ANIMALS = ["bird", "cat", "dog", "rabbit", "reptile"]
 const SearchParams = () => {
-  const [location, setLocation] = useState("Houston, TX")
+  const [location, setLocation] = useState("")
   const [animal, setAnimal] = useState("")
   const [breed, setBreed] = useState("")
+  const [pets, setPets] = useState([])
   const BREEDS = ["1"]
+  // And effect runs every single time you re-rends the application
+  // By passing an empty array of dependencies variables, it will only run once. At the beggining
+  useEffect(() => {
+    requestPets()
+  }, [])
+  async function requestPets() {
+    const res = await fetch(`http://pets-v2.dev-apis.com/pets?animal=${animal}&location=${location}&breed=${breed}`)
+    const json = await res.json()
+    setPets(json.pets)
+  }
   // Same as:
   // const locationHook = useState("")
   // const location = locationHook[0]
   // const setLocation = locationHook[1]
   return (
     <div className="search-params">
-      <form>
+      <form onSubmit={e => {
+        e.preventDefault()
+        requestPets()
+      }}>
         <label htmlFor="location">
           Location
         </label>
@@ -45,8 +60,18 @@ const SearchParams = () => {
             <option key={breed}>{breed}</option>
           ))}
         </select>
-        <button type="button">Submit</button>
+        <button type="submit">Submit</button>
       </form>
+      {
+        pets.map(pet => (
+          <Pet
+            name={pet.name}
+            animal={pet.animal}
+            breed={pet.breed}
+            key={pet.id}
+          />
+        ))
+      }
     </div>
   )
 }
