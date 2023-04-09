@@ -1,34 +1,15 @@
-import React from "react"
 import { createRoot } from "react-dom"
-const tShirt = (props) => {
-  return React.createElement("div", {}, [
-    React.createElement("h1", {}, `${props.label} - ${props.color} - ${props.size}`),
-  ])
-}
+import Tshirt from './Tshirt'
 const App = () => {
-  return React.createElement(
-    'div',
-    {}, 
-    [
-      React.createElement('h1', {}, 'Adopt me!'),
-      React.createElement(tShirt, {
-        label: "Nike",
-        color: "Grey",
-        size: "Large"
-      }),
-      React.createElement(tShirt, {
-        label: "Tribord",
-        color: "Black",
-        size: "Extra large"
-      }),
-      React.createElement(tShirt, {
-        label: "Reebok",
-        color: "Red",
-        size: "Medium"
-      })
-    ]
+  return (
+    <div>
+      <h1>Awesome t-shirts</h1>
+      <Tshirt label="Nike" color="Grey" size="Large" />
+      <Tshirt label="Tribord" color="Black" size="Extra large" />
+      <Tshirt label="Reebok" color="Red" size="Medium" />
+  </div>
   )
 }
 const rootContainer = document.querySelector('#root')
 const root = createRoot(rootContainer)
-root.render(React.createElement(App))
+root.render(<App/>)
