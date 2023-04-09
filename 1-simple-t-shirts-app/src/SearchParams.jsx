@@ -11,7 +11,7 @@ const SearchParams = () => {
   // By passing an empty array of dependencies variables, it will only run once. At the beggining
   useEffect(() => {
     requestPets()
-  }, [])
+  }, []) // eslint-disable-line react-hooks/exhaustive-deps
   async function requestPets() {
     const res = await fetch(`http://pets-v2.dev-apis.com/pets?animal=${animal}&location=${location}&breed=${breed}`)
     const json = await res.json()
