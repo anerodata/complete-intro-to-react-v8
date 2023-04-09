@@ -1,3 +1,5 @@
+import React from "react"
+import { createRoot } from "react-dom"
 const tShirt = (props) => {
   return React.createElement("div", {}, [
     React.createElement("h1", {}, `${props.label} - ${props.color} - ${props.size}`),
@@ -28,5 +30,5 @@ const App = () => {
   )
 }
 const rootContainer = document.querySelector('#root')
-const root = ReactDOM.createRoot(rootContainer)
+const root = createRoot(rootContainer)
 root.render(React.createElement(App))
