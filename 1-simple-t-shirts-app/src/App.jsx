@@ -1,12 +1,12 @@
 import { createRoot } from "react-dom"
-import Tshirt from './Tshirt'
+import Pet from './Tshirt'
 const App = () => {
   return (
     <div>
       <h1>Awesome t-shirts</h1>
-      <Tshirt label="Nike" color="Grey" size="Large" />
-      <Tshirt label="Tribord" color="Black" size="Extra large" />
-      <Tshirt label="Reebok" color="Red" size="Medium" />
+      <Pet name="Peter" animal="Dog" breed="Havanese" />
+      <Pet name="Luna" animal="Cat" breed="Mixed" />
+      <Pet name="Londra" animal="Bird" breed="Cockatiel" />
   </div>
   )
 }
