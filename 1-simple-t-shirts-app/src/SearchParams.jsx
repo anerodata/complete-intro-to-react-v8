@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react"
+import useBreedList from "./useBreedList"
 import Pet from './Tshirt'
 const ANIMALS = ["bird", "cat", "dog", "rabbit", "reptile"]
 const SearchParams = () => {
@@ -6,7 +7,7 @@ const SearchParams = () => {
   const [animal, setAnimal] = useState("")
   const [breed, setBreed] = useState("")
   const [pets, setPets] = useState([])
-  const BREEDS = ["1"]
+  const [breeds] = useBreedList(animal)
   // And effect runs every single time you re-rends the application
   // By passing an empty array of dependencies variables, it will only run once. At the beggining
   useEffect(() => {
@@ -53,10 +54,10 @@ const SearchParams = () => {
           id="breed"
           value={breed}
           onChange={e => setBreed(e.target.value)}
-          disabled={BREEDS.length === 0}
+          disabled={breeds.length === 0}
         >
           <option/>
-          {BREEDS.map(breed => (
+          {breeds.map(breed => (
             <option key={breed}>{breed}</option>
           ))}
         </select>
