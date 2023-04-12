@@ -7,7 +7,6 @@ const App = () => {
     <BrowserRouter>
       <div>
         <h1>Awesome t-shirts</h1>
-        <SearchParams/>
         <Routes>
           <Route path="/details/:id" element={<Details/>}/>
           <Route path="/" element={<SearchParams/>}/>
