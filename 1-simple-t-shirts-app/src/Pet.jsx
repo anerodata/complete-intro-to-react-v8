@@ -3,13 +3,14 @@
 //     React.createElement("h1", {}, `${props.label} - ${props.color} - ${props.size}`),
 //   ])
 // }
+import { Link } from 'react-router-dom'
 const Pet = ({animal, name, breed, images, location, id}) => {
   let hero = "http://pets-images.dev-apis.com/pets/none.jpg"
   if (images.length) {
     hero = images[0]
   }
   return (
-    <a href={`/details/${id}`} className="pet">
+    <Link to={`/details/${id}`} className="pet">
       <div className="image-container">
         <img src={hero} alt={name} />
       </div>
@@ -17,7 +18,7 @@ const Pet = ({animal, name, breed, images, location, id}) => {
         <h1>{name}</h1>
         <h1>{animal} - {breed} - {location}</h1>
       </div>
-    </a>
+    </Link>
   )
 }
 
