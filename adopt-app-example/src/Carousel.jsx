@@ -6,7 +6,13 @@ class Carousel extends Component {
   static defaultProps = {
     images: ['https://pets-images.dev-apis.com/pets/none.jpg']
   }
+  handleImgClick = (e) => {
+    this.setState({
+      active: +e.target.dataset.index
+    })
+  }
   render () {
+    throw new Error("error loool")
     const { active } = this.state
     const { images } = this.props
     return (
@@ -14,7 +20,9 @@ class Carousel extends Component {
         <img src={images[active]} alt="an animal" />
         <div className="carousel-smaller">
         {images.map((photo, index) => (
-          <img key={photo}
+          <img onClick={this.handleImgClick}
+            data-index={index}
+            key={photo}
             src={photo}
             className={index === active ? 'active': ''}
             alt="animal thumbnail"
