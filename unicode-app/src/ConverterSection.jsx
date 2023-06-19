@@ -1,5 +1,5 @@
 import { useState } from 'react'
-const UserInput = (props) => {
+const ConverterSection = (props) => {
 const [textToReplaceHook, setTextToReplaceHook ] = useState(props.value)
   return (
     <section>
@@ -9,7 +9,9 @@ const [textToReplaceHook, setTextToReplaceHook ] = useState(props.value)
         props.onTextToReplaceChange(newText)
       }}>
       </textarea>
+      <textarea readOnly value={props.value} cols="30" rows="10">
+      </textarea>
     </section>
   )
 }
-export default UserInput
+export default ConverterSection
