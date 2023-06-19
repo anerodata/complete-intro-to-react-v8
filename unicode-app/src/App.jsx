@@ -1,15 +1,16 @@
 import { createRoot } from 'react-dom/client'
 import { useState } from 'react'
-import Converter from './Converter.jsx'
-import TextToConvertContext from './TextToConvertContext.jsx'
+import ConverterInput from './ConverterInput.jsx'
 
 const App = () => {
-  const textToConvertHook = useState('')
+  const [ textToConvertHook, setTextToConvertHook ] = useState('')
   return (
-    <TextToConvertContext.Provider value={textToConvertHook}>
-      <Converter/>
-      <Converter/>
-    </TextToConvertContext.Provider>
+  <div>
+    <ConverterInput readOnly={false} onTextToReplaceChange={(value) => {
+      setTextToConvertHook(value)
+    }} value={textToConvertHook} />
+    <ConverterInput value={textToConvertHook} readOnly={true} />
+</div>
   )
 }
 const rootContainer = document.querySelector('#root')
