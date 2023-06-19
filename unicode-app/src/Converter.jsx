@@ -1,11 +1,12 @@
 import { useState } from 'react'
+import { useContext } from 'react'
+import TextToConvertContext from './TextToConvertContext.jsx'
 const Converter = (props) => {
-const [ textToReplace, updateTextToReplace ] = useState('') 
+const [textToReplace, setTextToReplace ] = useContext(TextToConvertContext)
   return (
     <section>
-      { textToReplace }
-      <textarea cols="30" rows="10" onChange={(e) => {
-        updateTextToReplace(e.target.value)
+      <textarea value={textToReplace} cols="30" rows="10" onChange={(e) => {
+        setTextToReplace(e.target.value)
       }}>
       </textarea>
     </section>
