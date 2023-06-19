@@ -12,4 +12,4 @@ const [textToReplaceHook, setTextToReplaceHook ] = useState(props.value)
     </section>
   )
 }
-export default UserInpu-
+export default UserInput
