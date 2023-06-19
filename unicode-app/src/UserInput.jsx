@@ -1,5 +1,5 @@
 import { useState } from 'react'
-const ConverterInput = (props) => {
+const UserInput = (props) => {
 const [textToReplaceHook, setTextToReplaceHook ] = useState(props.value)
   return (
     <section>
@@ -12,4 +12,4 @@ const [textToReplaceHook, setTextToReplaceHook ] = useState(props.value)
     </section>
   )
 }
-export default ConverterInput
+export default UserInpu-

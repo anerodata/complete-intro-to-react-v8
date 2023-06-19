@@ -1,15 +1,16 @@
 import { createRoot } from 'react-dom/client'
 import { useState } from 'react'
-import ConverterInput from './ConverterInput.jsx'
+import UserInput from './UserInput.jsx'
+import ResultInput from './ResultInput.jsx'
 
 const App = () => {
   const [ textToConvertHook, setTextToConvertHook ] = useState('')
   return (
   <div>
-    <ConverterInput readOnly={false} onTextToReplaceChange={(value) => {
+    <UserInput readOnly={false} onTextToReplaceChange={(value) => {
       setTextToConvertHook(value)
     }} value={textToConvertHook} />
-    <ConverterInput value={textToConvertHook} readOnly={true} />
+    <ResultInput value={textToConvertHook} />
 </div>
   )
 }
