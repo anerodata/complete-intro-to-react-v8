@@ -9,7 +9,7 @@ const [_, setTextToReplaceHook ] = useState(props.value)
         props.onTextToReplaceChange(newText)
       }}>
       </textarea>
-      <textarea readOnly value={props.value} cols="30" rows="10">
+      <textarea readOnly value={props.valueModified} cols="30" rows="10">
       </textarea>
     </section>
   )
